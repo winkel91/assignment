@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Time Since Entered Website</title>
+</head>
+<body>
+  <h1>Time Since Entered Website</h1>
+  <p>Time since you entered the website:</p>
+  <p id="time"></p>
+  <script>
+    // Call the API every second and update the time element
+    setInterval(() => {
+      fetch('/time')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('time').innerText = data.time + ' seconds';
+        });
+    }, 1000);
+  </script>
+</body>
+</html>
